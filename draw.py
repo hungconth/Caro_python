@@ -1,7 +1,7 @@
 import pygame
 from config import *
 from positions import *
-# hung 
+
 def drawX(screen , x = 0, y = 0):
     points = ((x * square_size + from_border, y * square_size + from_border), 
              ((x + 1) * square_size - from_border, (y + 1) * square_size - from_border), 
