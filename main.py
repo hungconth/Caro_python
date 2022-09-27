@@ -75,7 +75,6 @@ def window_game():
                 
 
 
-
 root = Tk()
 root.title("Caro")
 root.geometry("400x400")
