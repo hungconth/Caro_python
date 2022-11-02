@@ -61,8 +61,7 @@ dict = {
 }
 
 # text config
-win_text1 = "Congratulations! "
-win_text2 = " win."
+win_text = " win."
 lose_text = " lost."
 # win_text = "Congratulations! You win."
 # lose_text = "You lost. Try Again?"
