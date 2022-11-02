@@ -2,21 +2,21 @@
 
 # from main import *
 
-screen_size = (400, 400)
-screen_color = (160, 160, 160)
+screen_size = (600, 600)
+screen_color = (14,41,60)
 
 # board config
 # 0 = ô đang trống, 1 = X, -1 = O
 
-border_thickness = 1
-square_size = 40
+border_thickness = 4
+square_size = 60
 
 # tic-tac config
 
-X_color = (0, 0, 128)
+X_color = (192, 250, 255)
 O_color = (255,0,0)
-tic_tac_thickness = 6
-from_border = 9
+tic_tac_thickness = 9
+from_border = 12
 
 # analyze points
 connect_multiple_four1 = 1e9 + 500

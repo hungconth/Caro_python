@@ -11,15 +11,15 @@ def drawX(screen , x = 0, y = 0):
     pygame.draw.line(screen, X_color, points[2], points[3], tic_tac_thickness)
 
 def drawO(screen, x = 0, y = 0):
-    pygame.draw.circle(screen, O_color, ((x + 0.5) * square_size, (y + 0.5) * square_size), square_size // 3, tic_tac_thickness)
+    pygame.draw.circle(screen, O_color, ((x + 0.5) * square_size, (y + 0.5) * square_size), square_size // 3, 6)
 
 def draw_screen():
     screen = pygame.display.set_mode(screen_size)
     screen.fill(screen_color)
     i = 0
     while i < 1000:
-        pygame.draw.line(screen, (0,0,0), (i, 0), (i, 1000), border_thickness)
-        pygame.draw.line(screen, (0,0,0), (0, i), (1000, i), border_thickness)
+        pygame.draw.line(screen, (79, 124, 186), (i, 0), (i, 1000), border_thickness)
+        pygame.draw.line(screen, (79, 124, 186), (0, i), (1000, i), border_thickness)
         i += square_size
     return screen
 

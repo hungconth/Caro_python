@@ -61,8 +61,8 @@ def window_game():
                 if game_over:
                     pygame.quit()
                 pos = pygame.mouse.get_pos()
-                x = pos[0] // 40
-                y = pos[1] // 40
+                x = pos[0] // 60
+                y = pos[1] // 60
                 if board[x][y] != 0:
                     continue
                 drawX(screen, x, y)
@@ -127,12 +127,21 @@ back=Button(highscore,text="Back",bg="dim gray",fg="#27C5DB", command = lambda:m
 back.place(x=10,y=10)
 c=1
 #top 5
+stt=Label(highscore,text="NO.",font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+stt.place(x=150,y=280+c*40)
+k=Label(highscore,text="NAME",font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+k.place(x=250,y=280+c*40)
+v=Label(highscore,text="SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+v.place(x=450,y=280+c*40)
 for key,value in top:
     c+=1
-    k=Label(highscore,text=key,font = ("Arial", "25","bold"),bg='#0E293C',fg="#27C5DB")
-    k.place(x=150,y=220+c*50)
-    v=Label(highscore,text=str(value),font = ("Arial", "25","bold"),bg='#0E293C',fg="#27C5DB")
-    v.place(x=350,y=220+c*50)
+    stt=Label(highscore,text=str(c-1),font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+    stt.place(x=150,y=280+c*40)
+    
+    k=Label(highscore,text=key,font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+    k.place(x=250,y=280+c*40)
+    v=Label(highscore,text=str(value),font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+    v.place(x=450,y=280+c*40)
     if c==6:
         break
 
