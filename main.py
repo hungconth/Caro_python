@@ -10,11 +10,11 @@ import operator
 
 name = ''
 def win(screen, winner = "Player"):
-    if name.title() not in top:
-        top.append((name.title(),0))
+    if name.title() not in d:
+        d[name.title()]=0
     if winner == "Player":
         # Label(root, text = name + win_text2  , font=text_font).pack()
-        top[name]+=1
+        d[name.title()]+=1
         display_text(screen, name.title() + win_text  , (screen_size[0] // 2, screen_size[1] // 2))
         
     else:
@@ -24,8 +24,8 @@ def win(screen, winner = "Player"):
     #write highscore
     with open('highscore.txt','w') as f: 
         f.write('{')
-        for key,value in top:
-            f.write("\'"+key+"\':"+str(value)+',\n')
+        for key in d:
+            f.write("\'"+key+"\':"+str(d[key])+',\n')
         f.write('}')
 def check_if_end_game(screen, board):
     if enemy_five_in_a_row(board, 1):
@@ -86,7 +86,7 @@ def window_game():
 
 root = Tk()
 root.geometry("600x600")
-root.title("Caro")
+root.title("Caro Game")
 bg=ImageTk.PhotoImage(Image.open("oa.png"))
 back_ground = Label(root,image=bg).place(x=0,y=0,relwidth=1, relheight=1)
 
@@ -121,24 +121,25 @@ f.close()
 top=sorted(d.items(), key=operator.itemgetter(1) , reverse=True)
 
 
-l=Label(highscore,text="HIGH SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="#27C5DB")
+l=Label(highscore,text="HIGH SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
 l.place(x=180,y=220)
-back=Button(highscore,text="Back",bg="dim gray",fg="#27C5DB", command = lambda:main_menu.tkraise(),font=("Arial", "30","bold"),relief="sunken")
-back.place(x=10,y=10)
 c=1
 #top 5
-k=Label(highscore,text="USERNAME",font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+ba=ImageTk.PhotoImage(Image.open("oback.png"))
+backButton=Button(highscore,image=ba,command = lambda:main_menu.tkraise(),relief='flat')
+backButton.place(x=10,y=520,relheight=0.1,relwidth=0.1)
+k=Label(highscore,text="USERNAME",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
 k.place(x=180,y=280+c*40)
-v=Label(highscore,text="SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+v=Label(highscore,text="SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
 v.place(x=400,y=280+c*40)
 for key,value in top:
     c+=1
-    stt=Label(highscore,text=str(c-1),font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+    stt=Label(highscore,text=str(c-1),font = ("Arial", "20","bold"),bg='#0E293C',fg="snow")
     stt.place(x=100,y=280+c*40)
     
-    k=Label(highscore,text=key,font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+    k=Label(highscore,text=key,font = ("Arial", "20","bold"),bg='#0E293C',fg="snow")
     k.place(x=180,y=280+c*40)
-    v=Label(highscore,text=str(value),font = ("Arial", "25","bold"),bg='#0E293C',fg="#1abcd5")
+    v=Label(highscore,text=str(value),font = ("Arial", "20","bold"),bg='#0E293C',fg="snow")
     v.place(x=400,y=280+c*40)
     if c==6:
         break
