@@ -35,20 +35,23 @@ def check_if_end_game(screen, board):
         win(screen, "Computer")
         return 1
     return 0
-
 def window_game():
     global name
     name = username.get()
     root.destroy()
-    
     pygame.init()
 
     screen = draw_screen()
-    
+    # Music
+    pygame.mixer.init()
+    pygame.mixer.music.load('nhacnen.wav')
+    pygame.mixer.music.play(-1)
+    pygame.event.wait()
+    click_sound=pygame.mixer.Sound('click.wav')
 
     board = new_board()
-
     pygame.display.update()
+    pygame.display.set_caption('Caro game')
 
     game_over = False
 
@@ -58,6 +61,7 @@ def window_game():
             if event.type == pygame.QUIT:
                 pygame.quit()
             elif event.type == pygame.MOUSEBUTTONUP:
+                click_sound.play()
                 if game_over:
                     pygame.quit()
                 pos = pygame.mouse.get_pos()
