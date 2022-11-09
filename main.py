@@ -120,10 +120,10 @@ main_menu.grid(column=0,row=0)
 highscore.grid(column=0,row=0)
 setting_frame.grid(column=0,row=0)
 
-ST = Button( main_menu,text ="START",bg="dim gray", fg="#27C5DB",command = window_game,font=("Arial", "30","bold"),relief="sunken") 
-ST.place(x=225,y=450)
-SC = Button( main_menu,text ="SCORE",bg="dim gray",fg="#27C5DB", command = lambda:highscore.tkraise(),font=("Arial", "30","bold"),relief="sunken")
-SC.place(x=219,y=550)
+ST = Button( main_menu,text ="START",bg="dim gray", fg="#27C5DB",command = window_game,font=("Arial", "30","bold"),relief="sunken",width=10) 
+ST.place(x=190,y=450)
+SC = Button( main_menu,text ="SCORE",bg="dim gray",fg="#27C5DB", command = lambda:highscore.tkraise(),font=("Arial", "30","bold"),relief="sunken",width=10)
+SC.place(x=190,y=550)
 
 tx = Label (main_menu,text="User name",font = ("Arial", "25","bold"),bg='#0E293C',fg="#27C5DB")
 tx.place(x=50,y=350)
@@ -132,15 +132,15 @@ username = Entry(main_menu, font = ("Arial", "25","bold"), width = 15, backgroun
 username.place(x=250,y=350)
 username.focus()
 
-setting=Button(main_menu,text ="OPTIONS",bg="dim gray", fg="#27C5DB",command = lambda:setting_frame.tkraise(),font=("Arial", "30","bold"),relief="sunken")
-setting.place(x=200,y=650)
+setting=Button(main_menu,text ="OPTIONS",bg="dim gray", fg="#27C5DB",command = lambda:setting_frame.tkraise(),font=("Arial", "30","bold"),relief="sunken",width=10)
+setting.place(x=190,y=650)
 
-se=Label(setting_frame,text="OPTIONS",font = ("Arial", "50","bold"), bg='#0E293C',fg="snow")
-se.place(x=165,y=350)
+se=Label(setting_frame,text="OPTIONS",font = ("Arial", "30","bold"), bg='#0E293C',fg="snow")
+se.place(x=200,y=220)
 music_=Label(setting_frame,text="MUSIC",font = ("Arial", "30","bold"), bg='#0E293C',fg="snow")
-music_.place(x=30,y=450)
+music_.place(x=30,y=350)
 sfx_=Label(setting_frame,text="SFX",font = ("Arial", "30","bold"), bg='#0E293C',fg="snow")
-sfx_.place(x=30,y=550)
+sfx_.place(x=30,y=450)
 music = IntVar(value=1)
 sfx = IntVar(value=1)
 yes=ImageTk.PhotoImage(Image.open("otick.png"))
@@ -149,8 +149,8 @@ music_box=Checkbutton(setting_frame, image=no, selectimage=yes, indicatoron=Fals
                     variable=music , relief="flat",bg='#0E293C',selectcolor='#0E293C')
 sfx_box=Checkbutton(setting_frame, image=no, selectimage=yes, indicatoron=False,onvalue=1, offvalue=0, bd=0,
                     variable=sfx , relief="flat",bg='#0E293C',selectcolor='#0E293C')
-music_box.place(x=300,y=450)
-sfx_box.place(x=300,y=550)
+music_box.place(x=300,y=350)
+sfx_box.place(x=300,y=450)
 Save_button = Button( setting_frame,text ="SAVE",bg="dim gray", fg="#27C5DB",command = sound_options ,font=("Arial", "30","bold"),relief="sunken") 
 Save_button.place(x=250,y=650)
 with open('highscore.txt') as f:
@@ -161,25 +161,25 @@ top=sorted(d.items(), key=operator.itemgetter(1) , reverse=True)
 
 
 l=Label(highscore,text="HIGH SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
-l.place(x=180,y=320)
+l.place(x=180,y=220)
 c=1
 #top 5
 ba=ImageTk.PhotoImage(Image.open("oback.png"))
 backButton=Button(highscore,image=ba,command = lambda:main_menu.tkraise(),relief='flat')
 backButton.place(x=10,y=700,relheight=0.1,relwidth=0.1)
-k=Label(highscore,text="USERNAME",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
-k.place(x=180,y=380+c*40)
+k=Label(highscore,text="NAME",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
+k.place(x=180,y=280+c*60)
 v=Label(highscore,text="SCORE",font = ("Arial", "25","bold"),bg='#0E293C',fg="snow")
-v.place(x=400,y=380+c*40)
+v.place(x=400,y=280+c*60)
 for key,value in top:
     c+=1
     stt=Label(highscore,text=str(c-1),font = ("Arial", "20","bold"),bg='#0E293C',fg="snow")
-    stt.place(x=100,y=380+c*40)
+    stt.place(x=100,y=280+c*60)
     
     k=Label(highscore,text=key,font = ("Arial", "20","bold"),bg='#0E293C',fg="snow")
-    k.place(x=180,y=380+c*40)
+    k.place(x=180,y=280+c*60)
     v=Label(highscore,text=str(value),font = ("Arial", "20","bold"),bg='#0E293C',fg="snow")
-    v.place(x=400,y=380+c*40)
+    v.place(x=400,y=280+c*60)
     if c==6:
         break
 
