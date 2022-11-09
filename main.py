@@ -20,6 +20,8 @@ def win(screen, winner = "Player"):
     else:
         # Label(root, text = name + lose_text  , font=text_font).pack()
         display_text(screen, name.title() + lose_text , (screen_size[0] // 2, screen_size[1] // 2))
+        
+    pygame.mixer.music.pause()
     
     #write highscore
     with open('highscore.txt','w') as f: 
@@ -138,9 +140,9 @@ setting.place(x=190,y=650)
 se=Label(setting_frame,text="OPTIONS",font = ("Arial", "30","bold"), bg='#0E293C',fg="snow")
 se.place(x=200,y=220)
 music_=Label(setting_frame,text="MUSIC",font = ("Arial", "30","bold"), bg='#0E293C',fg="snow")
-music_.place(x=30,y=350)
+music_.place(x=120,y=350)
 sfx_=Label(setting_frame,text="SFX",font = ("Arial", "30","bold"), bg='#0E293C',fg="snow")
-sfx_.place(x=30,y=450)
+sfx_.place(x=120,y=450)
 music = IntVar(value=1)
 sfx = IntVar(value=1)
 yes=ImageTk.PhotoImage(Image.open("otick.png"))
