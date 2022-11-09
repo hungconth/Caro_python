@@ -146,11 +146,11 @@ def two_in_a_row(board, next_player, x, y, rank):
     return process(board, next_player, x, y, 'two', 2, rank)
 
 
-def enemy_four_in_a_row(board, next_player):
+def enemy_four_in_a_row(board, next_player, xx, yy):
     board_size = len(board)
     points = (0, 0, 0)
-    for i in range(board_size):
-        for j in range(board_size):
+    for i in range(max(0, xx - n), min(len(board), xx + n)):
+        for j in range(max(0, yy - n), min(len(board), yy + n)):
             if board[i][j] == 0:
                 newL = coppyList(board)
                 newL[i][j] = next_player
@@ -159,11 +159,11 @@ def enemy_four_in_a_row(board, next_player):
                     points = (cur_point, i, j)
     return points
 
-def enemy_three_in_a_row(board, next_player):
+def enemy_three_in_a_row(board, next_player, xx, yy):
     board_size = len(board)
     points = (0, 0, 0)
-    for i in range(board_size):
-        for j in range(board_size):
+    for i in range(max(0, xx - n), min(len(board), xx + n)):
+        for j in range(max(0, yy - n), min(len(board), yy + n)):
             if board[i][j] == 0:
                 newL = coppyList(board)
                 newL[i][j] = next_player
@@ -172,11 +172,11 @@ def enemy_three_in_a_row(board, next_player):
                     points = (cur_point, i, j)
     return points
 
-def enemy_two_in_a_row(board, next_player):
+def enemy_two_in_a_row(board, next_player, xx, yy):
     board_size = len(board)
     points = (0, 0, 0)
-    for i in range(board_size):
-        for j in range(board_size):
+    for i in range(max(0, xx - n), min(len(board), xx + n)):
+        for j in range(max(0, yy - n), min(len(board), yy + n)):
             if board[i][j] == 0:
                 newL = coppyList(board)
                 newL[i][j] = next_player

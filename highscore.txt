@@ -1,5 +1,5 @@
 {'Hang':28,
-'Hung':21,
+'Hung':23,
 'Xyz':15,
 'Abc':0,
 'Bang':12,

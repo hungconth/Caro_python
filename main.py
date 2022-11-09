@@ -65,8 +65,8 @@ def window_game():
                 if game_over:
                     pygame.quit()
                 pos = pygame.mouse.get_pos()
-                x = pos[0] // 60
-                y = pos[1] // 60
+                x = pos[0] // 40
+                y = pos[1] // 40
                 if board[x][y] != 0:
                     continue
                 drawX(screen, x, y)
@@ -78,7 +78,7 @@ def window_game():
                     continue
 
                 pygame.display.update()
-                computer_reply(screen, board)
+                computer_reply(screen, board, x, y)
                 if check_if_end_game(screen, board):
                     pygame.display.update()
                     ev = pygame.event.get()
