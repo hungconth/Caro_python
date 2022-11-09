@@ -11,7 +11,6 @@ dosau = 2
 
 border_thickness = 4
 square_size = 40
-
 # tic-tac config
 
 X_color = (192, 250, 255)

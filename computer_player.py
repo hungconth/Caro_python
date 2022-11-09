@@ -176,17 +176,17 @@ board[2][2] = 1
 # board[2][4] = 1
 # board[1][3] = -1
 # board[3][3] = 1
-for i in range(len(board)):
-    for j in range(len(board)):
-        print(board[i][j], end = " ")
-    print()
-for i in range(len(board)):
-    for j in range(len(board)):
-        if board[i][j] == 0:
-            board[i][j] = -1
-            print(max_value(board, -1e18, 1e18, 2, i, j), end = " ")
-            board[i][j] = 0
-    print()
+# for i in range(len(board)):
+#     for j in range(len(board)):
+#         print(board[i][j], end = " ")
+#     print()
+# for i in range(len(board)):
+#     for j in range(len(board)):
+#         if board[i][j] == 0:
+#             board[i][j] = -1
+#             print(max_value(board, -1e18, 1e18, 2, i, j), end = " ")
+#             board[i][j] = 0
+#     print()
 
 
 # screen: màn hình hiện đang chơi, board: mảng 2 chiều thể hiện trạng thái của bàn cờ
